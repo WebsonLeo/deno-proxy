@@ -8,6 +8,7 @@ const handler = async (request: Request) => {
   return await fetch(targetUrl.toString(), {
     method: request.method,
     headers: request.headers,
+    redirect: request.redirect,
     body: request.body,
   });
 };
