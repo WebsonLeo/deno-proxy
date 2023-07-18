@@ -1,16 +1,19 @@
 import { Server } from "https://deno.land/std/http/server.ts";
 
-const TARGET = "https://chat.openai.com";
+const TARGET = "chat.openai.com";
 const handler = async (request: Request) => {
   const url = new URL(request.url);
-  const targetUrl = new URL(TARGET + url.pathname + url.search);
-  console.log(request.headers)
-  return await fetch(targetUrl.toString(), {
-    method: request.method,
-    headers: request.headers,
-    redirect: request.redirect,
-    body: request.body,
-  });
+  url.host = TARGET;
+  return await fetch(url, request);
+  // const url = new URL(request.url);
+  // const targetUrl = new URL(TARGET + url.pathname + url.search);
+  // console.log(request.headers)
+  // return await fetch(targetUrl.toString(), {
+  //   method: request.method,
+  //   headers: request.headers,
+  //   redirect: request.redirect,
+  //   body: request.body,
+  // });
 };
 
 const server = new Server({ handler });
