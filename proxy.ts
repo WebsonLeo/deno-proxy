@@ -1,6 +1,6 @@
 import { Server } from "https://deno.land/std/http/server.ts";
 
-const TARGET = "chat.openai.com";
+const TARGET = "www.google.com";
 const handler = async (request: Request) => {
   const url = new URL(request.url);
   url.host = TARGET;
