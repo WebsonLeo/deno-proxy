@@ -4,7 +4,7 @@ const TARGET = "https://chat.openai.com";
 const handler = async (request: Request) => {
   const url = new URL(request.url);
   const targetUrl = new URL(TARGET + url.pathname + url.search);
-
+  console.log(targetUrl)
   return await fetch(targetUrl.toString(), {
     method: request.method,
     headers: request.headers,
