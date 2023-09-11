@@ -4,6 +4,7 @@ import {Server} from "https://deno.land/std/http/server.ts";
 const handler = async (request: Request) => {
     // const url = new URL(request.url);
     // const targetUrl = new URL(TARGET + url.pathname + url.search);
+    console.log(request)
 
     return await fetch(request.url, {
         method: request.method,
